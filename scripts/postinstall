@@ -1,0 +1,13 @@
+#!/bin/bash
+
+mkdir -p "$3/Library/Application Support/dockset/add-once"
+mkdir -p "$3/Library/Application Support/dockset/add-every"
+mkdir -p "$3/Library/Application Support/dockset/remove-once"
+mkdir -p "$3/Library/Application Support/dockset/remove-every"
+
+if [ $3 == "/" ]; then
+    consoleuser=`/usr/bin/stat -f "%Su" /dev/console | /usr/bin/xargs /usr/bin/id -u`
+
+    /bin/launchctl bootout gui/$consoleuser /Library/LaunchAgents/org.macadmins.dockset.plist
+    /bin/launchctl bootstrap gui/$consoleuser /Library/LaunchAgents/org.macadmins.dockset.plist
+fi
