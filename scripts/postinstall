@@ -1,8 +1,10 @@
 #!/bin/bash
 
 mkdir -p "$3/Library/Application Support/dockset/add-once"
+chmod 777 "$3/Library/Application Support/dockset/add-once"
 mkdir -p "$3/Library/Application Support/dockset/add-every"
 mkdir -p "$3/Library/Application Support/dockset/remove-once"
+chmod 777 "$3/Library/Application Support/dockset/add-once"
 mkdir -p "$3/Library/Application Support/dockset/remove-every"
 
 if [ $3 == "/" ]; then
